@@ -1,6 +1,3 @@
-[![Build Status](https://travis.ibm.com/aur/analytics-module-template.svg?token=QuyXLeP5gvp3qMzmD25u&branch=master)](https://travis.ibm.com/aur/analytics-module-template)
-
-
 # Introduction
 
 An **Analytics Module** or short **AModule** is a wrapper around 
@@ -65,7 +62,7 @@ SPEC = \
 The repo `analytics-module-template` contains a template and example code 
 that can be used as a starting point when wrapping your analytics code.
 Most of the actual functionality of analytics modules is implemented in the
-base repo [analytics-module](https://github.ibm.com/aur/analytics-module),
+base repo [analytics-module](https://github.quuux.com/aur/analytics-module),
 which need to be installed but not modified.
 
 Another requirement is [mma-common](https://github.com/maet3608/mma-common),
@@ -112,8 +109,7 @@ These files you usually don't need to touch.
 
 - `setup.py` : Installs the module as Python package under `site-packages`.
 - `MANIFEST.in` : Defines which data files are part of the package.
-- `.travis.yaml` : Configuration for *Continuous Integration* via 
-   [Travis](https://travis.ibm.com/).
+- `.travis.yaml` : Configuration for *Continuous Integration* via Travis.
 - `.gitignore` : Tells Git which files to ignore.
 - `.gitattributes` Tells Git which files need LFS (large file system).
    Typically these are model weights files greater than 100MB.
@@ -126,7 +122,7 @@ base libraries, `analytics-module` and `mmacommon`. Clone the following repos
 
 ```bash
 git clone https://github.com/maet3608/mma-common
-git clone https://github.ibm.com/aur/analytics-module
+git clone https://github.quuux.com/aur/analytics-module
 ```
 
 and then run `setup.py` to install them
@@ -149,7 +145,7 @@ and the required `specification.py` will be provided in the following sections.
 1. Create empty git repo for your module, e.g. `my-cat-detector`
 2. Download `analytics-module-template` and copy its contents into your repo,  
    e.g. download as zip file using this link: 
-   [analytics-module-template.zip](https://github.ibm.com/aur/analytics-module-template/archive/master.zip)
+   [analytics-module-template.zip](https://github.com/maet3608/analytics-module-template/archive/main.zip)
 3. Run `python setup.py init`  
    This will rename `amod_template` to `amod_<working directory>`
    omitting dashes or spaces, e.g. `amod_mycatdetector`
@@ -347,10 +343,10 @@ Here an example:
 ```json
 "module": {
     "author": "Stefan Maetschke",
-    "author_email": "stefanrm@au1.ibm.com",
+    "author_email": "stefanrm@au1.quuux.com",
     "description": "Segments bright pixels.",
     "name": "Bright Pixel Segmenter",
-    "url": "https://github.ibm.com/aur/analytics-module-template.git",
+    "url": "https://github.quuux.com/aur/analytics-module-template.git",
     "version": "1.0.0",
     "dependencies": [ "Keras >= 2.0.3", "nutsml >= 1.0.28"]
 }
@@ -729,7 +725,7 @@ instance, if the REST API request the following Numpy array
  `/api/run/process?image=ndarray/uint8///3`, which describes an RGB image, 
 it can be provided as an HTTP URL, a file URL, or data URL. Here some examples:
 ```
-/api/run/process?image=https://www.ibm.com/image.jpg
+/api/run/process?image=https://www.quuux.com/image.jpg
 /api/run/process?image=file:///your/file/image.png
 /api/run/process?image=data:image/gif;base64,/9j/4SXNR...
 ``` 
@@ -753,8 +749,8 @@ Some examples:
 ```
 /api/run/process?oct=data:ndarray/npy;base64,/9j/4SXNR...
 /api/run/process?oct=data:ndarray/npz;base64,JHIHUFD...
-/api/run/process?oct=https://www.ibm.com/oct.npy
-/api/run/process?oct=https://www.ibm.com/oct.npz
+/api/run/process?oct=https://www.quuux.com/oct.npy
+/api/run/process?oct=https://www.quuux.com/oct.npz
 /api/run/process?oct=file:///your/file/oct.npy
 /api/run/process?oct=file:///your/file/oct.npz
 ``` 
@@ -770,7 +766,7 @@ This works the same for images or Numpy arrays, e.g. given the following
 specification `/api/run/process?images=[ndarray/uint8//]` for a list of
 grayscale images, the data could be provide as URLs
 ```
-/api/run/process?images=https://www.ibm.com/image1.jpg,file:///folder/image2.png,...
+/api/run/process?images=https://www.quuux.com/image1.jpg,file:///folder/image2.png,...
 ``` 
 or comma separated data URLs
 ```
@@ -837,7 +833,7 @@ API:
 
 GET:
 
-`curl "http://127.0.0.1:5000/api/run/process?image=https://www.ibm.com/image.jpg"`
+`curl "http://127.0.0.1:5000/api/run/process?image=https://www.quuux.com/image.jpg"`
 
 `curl "http://127.0.0.1:5000/api/run/process?image=file:///your/file/image.png"`
 
@@ -845,7 +841,7 @@ GET:
 
 POST JSON:
 
-`curl --header "Content-Type: application/json" --request POST --data '{"image":"https://www.ibm.com/image.jpg"}' http://127.0.0.1:5000/api/run/process
+`curl --header "Content-Type: application/json" --request POST --data '{"image":"https://www.quuux.com/image.jpg"}' http://127.0.0.1:5000/api/run/process
 `
 
 `curl --header "Content-Type: application/json" --request POST --data '{"image":"data:image/gif;base64,/9j/4SXNR..."}' http://127.0.0.1:5000/api/run/process
@@ -861,18 +857,18 @@ API:
 
 GET:
 
-`curl "http://127.0.0.1:5000/api/run/process?images=https://www.ibm.com/image1.jpg,https://www.ibm.com/image2.jpg"`
+`curl "http://127.0.0.1:5000/api/run/process?images=https://www.quuux.com/image1.jpg,https://www.quuux.com/image2.jpg"`
 
 `curl "http://127.0.0.1:5000/api/run/process?images=data:image/gif;base64,/9j/4SXNR...,data:image/gif;base64,JILUH..."`
 
 POST:
 
-`curl --data "images=https://www.ibm.com/image1.jpg,https://www.ibm.com/image2.jpg" http://127.0.0.1:5000/api/run/process`
+`curl --data "images=https://www.quuux.com/image1.jpg,https://www.quuux.com/image2.jpg" http://127.0.0.1:5000/api/run/process`
 
 
 POST JSON:
 
-`curl --header "Content-Type: application/json" --request POST --data '{"images":["https://www.ibm.com/image.jpg","https://www.ibm.com/image.jpg"]}' http://127.0.0.1:5000/api/run/process
+`curl --header "Content-Type: application/json" --request POST --data '{"images":["https://www.quuux.com/image.jpg","https://www.quuux.com/image.jpg"]}' http://127.0.0.1:5000/api/run/process
 `
 
 ### Example - list of OCTs
@@ -885,9 +881,9 @@ API:
 
 GET:
 
-`curl "http://127.0.0.1:5000/api/run/process?octs=https://www.ibm.com/oct1.npz,https://www.ibm.com/oct2.npz"`
+`curl "http://127.0.0.1:5000/api/run/process?octs=https://www.quuux.com/oct1.npz,https://www.quuux.com/oct2.npz"`
 
-`curl "http://127.0.0.1:5000/api/run/process?octs=https://www.ibm.com/oct1.npy,https://www.ibm.com/oct2.npy"`
+`curl "http://127.0.0.1:5000/api/run/process?octs=https://www.quuux.com/oct1.npy,https://www.quuux.com/oct2.npy"`
 
 `curl "http://127.0.0.1:5000/api/run/process?octs=data:ndarray/npz;base64,/9j/4SXNR...,data:ndarray/npz;base64,JILUH..."`
 
@@ -898,7 +894,7 @@ POST:
 
 POST JSON:
 
-`curl --header "Content-Type: application/json" --request POST --data '{"octs":["https://www.ibm.com/oct1.npy","https://www.ibm.com/oct2.npz"]}' http://127.0.0.1:5000/api/run/process
+`curl --header "Content-Type: application/json" --request POST --data '{"octs":["https://www.quuux.com/oct1.npy","https://www.quuux.com/oct2.npz"]}' http://127.0.0.1:5000/api/run/process
 `
 
 
