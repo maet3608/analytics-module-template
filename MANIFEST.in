@@ -1,0 +1,6 @@
+include README.md
+recursive-include */resources *
+recursive-include */testdata *
+global-exclude *.pyc
+prune dist
+prune build
